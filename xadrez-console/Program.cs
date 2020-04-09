@@ -10,17 +10,16 @@ namespace xadrez_console
         {
 			try
 			{
-                /*
                 Tabuleiro tab = new Tabuleiro(8, 8);
                 tab.AdicionarPeca(new Rei(tab, Cor.PRETO), new Posicao(0, 0));
                 tab.AdicionarPeca(new Bispo(tab, Cor.PRETO), new Posicao(0, 1));
                 tab.AdicionarPeca(new Cavalo(tab, Cor.PRETO), new Posicao(2, 6));
 
-                Tela.ImprimirTabuleiro(tab);
-                */
+                tab.AdicionarPeca(new Rainha(tab, Cor.BRANCO), new Posicao(3, 5));
+                tab.AdicionarPeca(new Peao(tab, Cor.BRANCO), new Posicao(7, 3));
+                tab.AdicionarPeca(new Torre(tab, Cor.BRANCO), new Posicao(4, 6));
 
-                PosicaoXadrez posXadrez = new PosicaoXadrez('c', 7);
-                Console.WriteLine(posXadrez.ToPosicao());
+                Tela.ImprimirTabuleiro(tab);
 
             }
 			catch (Exception e)
