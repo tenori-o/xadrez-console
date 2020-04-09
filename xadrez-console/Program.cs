@@ -8,13 +8,20 @@ namespace xadrez_console
     {
         static void Main(string[] args)
         {
-            Tabuleiro tab = new Tabuleiro(8, 8);
-            tab.AdicionarPeca(new Rei(tab, Cor.PRETO), new Posicao(0, 0));
-            tab.AdicionarPeca(new Bispo(tab, Cor.PRETO), new Posicao(1, 3));
-            tab.AdicionarPeca(new Cavalo(tab, Cor.PRETO), new Posicao(2, 6));
+			try
+			{
+                Tabuleiro tab = new Tabuleiro(8, 8);
+                tab.AdicionarPeca(new Rei(tab, Cor.PRETO), new Posicao(0, 0));
+                tab.AdicionarPeca(new Bispo(tab, Cor.PRETO), new Posicao(0, 0));
+                tab.AdicionarPeca(new Cavalo(tab, Cor.PRETO), new Posicao(2, 6));
 
-            Tela.ImprimirTabuleiro(tab);
-            Console.ReadLine();
+                Tela.ImprimirTabuleiro(tab);
+            }
+			catch (Exception e)
+			{
+                Console.WriteLine(e.Message);
+			}
+                Console.ReadLine();
         }
     }
 }
