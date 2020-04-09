@@ -51,7 +51,7 @@ namespace xadrez_console
                 Console.Write("- ");
             } else
             {
-                if (peca.Cor == Cor.BRANCO)
+                if (peca.Cor == Cor.Branca)
                 {
                     Console.Write(peca);
                 }
