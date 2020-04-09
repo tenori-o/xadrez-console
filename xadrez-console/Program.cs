@@ -10,12 +10,18 @@ namespace xadrez_console
         {
 			try
 			{
+                /*
                 Tabuleiro tab = new Tabuleiro(8, 8);
                 tab.AdicionarPeca(new Rei(tab, Cor.PRETO), new Posicao(0, 0));
-                tab.AdicionarPeca(new Bispo(tab, Cor.PRETO), new Posicao(0, 0));
+                tab.AdicionarPeca(new Bispo(tab, Cor.PRETO), new Posicao(0, 1));
                 tab.AdicionarPeca(new Cavalo(tab, Cor.PRETO), new Posicao(2, 6));
 
                 Tela.ImprimirTabuleiro(tab);
+                */
+
+                PosicaoXadrez posXadrez = new PosicaoXadrez('c', 7);
+                Console.WriteLine(posXadrez.ToPosicao());
+
             }
 			catch (Exception e)
 			{
