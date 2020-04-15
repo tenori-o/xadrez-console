@@ -2,9 +2,9 @@
 
 namespace xadrez
 {
-    class Bispo : Peca
+    class Dama : Peca
     {
-        public Bispo(Tabuleiro tab, Cor cor) : base(tab, cor) { }
+        public Dama(Tabuleiro tab, Cor cor) : base(tab, cor) { }
 
         private bool PodeMover(Posicao pos)
         {
@@ -14,7 +14,7 @@ namespace xadrez
 
         public override string ToString()
         {
-            return "B";
+            return "D";
         }
 
         public override bool[,] MovimentosPossiveis()
@@ -22,6 +22,54 @@ namespace xadrez
             bool[,] matriz = new bool[Tab.Linhas, Tab.Colunas];
 
             Posicao pos = new Posicao(0, 0);
+
+            // North
+            pos.SetPosicao(Posicao.Linha - 1, Posicao.Coluna);
+            while (Tab.PosicaoValida(pos) && PodeMover(pos))
+            {
+                matriz[pos.Linha, pos.Coluna] = true;
+                if (Tab.Peca(pos) != null && Tab.Peca(pos).Cor != Cor)
+                {
+                    break;
+                }
+                pos.Linha = pos.Linha - 1;
+            }
+
+            // South
+            pos.SetPosicao(Posicao.Linha + 1, Posicao.Coluna);
+            while (Tab.PosicaoValida(pos) && PodeMover(pos))
+            {
+                matriz[pos.Linha, pos.Coluna] = true;
+                if (Tab.Peca(pos) != null && Tab.Peca(pos).Cor != Cor)
+                {
+                    break;
+                }
+                pos.Linha = pos.Linha + 1;
+            }
+
+            // East
+            pos.SetPosicao(Posicao.Linha, Posicao.Coluna + 1);
+            while (Tab.PosicaoValida(pos) && PodeMover(pos))
+            {
+                matriz[pos.Linha, pos.Coluna] = true;
+                if (Tab.Peca(pos) != null && Tab.Peca(pos).Cor != Cor)
+                {
+                    break;
+                }
+                pos.Coluna = pos.Coluna + 1;
+            }
+
+            // West
+            pos.SetPosicao(Posicao.Linha, Posicao.Coluna - 1);
+            while (Tab.PosicaoValida(pos) && PodeMover(pos))
+            {
+                matriz[pos.Linha, pos.Coluna] = true;
+                if (Tab.Peca(pos) != null && Tab.Peca(pos).Cor != Cor)
+                {
+                    break;
+                }
+                pos.Coluna = pos.Coluna - 1;
+            }
 
             // NorthWest
             pos.SetPosicao(Posicao.Linha - 1, Posicao.Coluna - 1);
